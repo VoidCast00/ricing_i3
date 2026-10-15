@@ -1,0 +1,14 @@
+i3-wm
+polybar
+dunst
+rofi
+kitty
+xss-lock
+feh
+xorg-xdpyinfo
+imagemagick
+ttf-hack-nerd
+papirus-icon-theme
+libnotify
+libpulse
+git

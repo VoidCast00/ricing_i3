@@ -1,0 +1,110 @@
+/* rofi — Gruvbox Dark, square 2px orange frame to match i3 */
+
+* {
+    bg:     #282828;
+    bg1:    #3c3836;
+    bg2:    #504945;
+    fg:     #ebdbb2;
+    gray:   #a89984;
+    orange: #fe8019;
+    yellow: #fabd2f;
+    red:    #fb4934;
+
+    font: "Hack Nerd Font 11";
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    location: center;
+    width: 600px;
+    background-color: @bg;
+    border: 2px;
+    border-color: @orange;
+}
+
+mainbox {
+    children: [ inputbar, message, listview ];
+    spacing: 0;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: @bg1;
+    padding: 10px 12px;
+    spacing: 12px;
+}
+
+prompt {
+    text-color: @orange;
+}
+
+entry {
+    placeholder: "search…";
+    placeholder-color: @gray;
+    cursor: text;
+}
+
+message {
+    padding: 8px 12px;
+    background-color: @bg1;
+}
+
+textbox {
+    text-color: @fg;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    fixed-height: true;
+    scrollbar: false;
+    padding: 6px 0;
+    spacing: 0;
+}
+
+element {
+    padding: 6px 12px;
+    spacing: 10px;
+    cursor: pointer;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: @bg;
+    text-color: @fg;
+}
+
+element selected.normal {
+    background-color: @bg2;
+    text-color: @orange;
+}
+
+element normal.active,
+element alternate.active {
+    background-color: @bg;
+    text-color: @yellow;
+}
+
+element selected.active {
+    background-color: @bg2;
+    text-color: @yellow;
+}
+
+element normal.urgent,
+element alternate.urgent,
+element selected.urgent {
+    background-color: @bg;
+    text-color: @red;
+}
+
+element-icon {
+    size: 22px;
+    background-color: inherit;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
