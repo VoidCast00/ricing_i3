@@ -29,6 +29,11 @@ cd ~/ricing
 |---------------------|------------------------|
 | `Super+Enter`       | kitty                  |
 | `Super+Space`       | rofi app launcher      |
-| `Super+Tab`         | rofi window switcher   |
+| `Super+Shift+E`     | power menu (lock / logout / suspend / reboot / shutdown) |
 | `Super+Shift+L`     | lock screen            |
+| `Super+Shift+A`     | accent color picker (preset or any hex) |
+| `Super+Alt+K`       | toggle keyboard layout: US ↔ Slovak (QWERTY) |
 | `Super+Shift+R`     | restart i3 (and bar)   |
+| Brightness keys     | brightness ±5%         |
+
+Bar: left-click the power profile to cycle saver → balanced → perf, right-click to pick one.

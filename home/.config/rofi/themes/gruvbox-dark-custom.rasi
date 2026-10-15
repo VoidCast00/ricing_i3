@@ -1,4 +1,4 @@
-/* rofi — Gruvbox Dark, square 2px orange frame to match i3 */
+/* rofi — Gruvbox Dark, square 2px accent frame to match i3 */
 
 * {
     bg:     #282828;
@@ -6,7 +6,7 @@
     bg2:    #504945;
     fg:     #ebdbb2;
     gray:   #a89984;
-    orange: #fe8019;
+    accent: #83a598;
     yellow: #fabd2f;
     red:    #fb4934;
 
@@ -20,7 +20,7 @@ window {
     width: 600px;
     background-color: @bg;
     border: 2px;
-    border-color: @orange;
+    border-color: @accent;
 }
 
 mainbox {
@@ -36,7 +36,7 @@ inputbar {
 }
 
 prompt {
-    text-color: @orange;
+    text-color: @accent;
 }
 
 entry {
@@ -77,7 +77,7 @@ element alternate.normal {
 
 element selected.normal {
     background-color: @bg2;
-    text-color: @orange;
+    text-color: @accent;
 }
 
 element normal.active,

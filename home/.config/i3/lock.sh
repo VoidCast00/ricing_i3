@@ -2,6 +2,7 @@
 # Gruvbox lock screen (needs i3lock-color). Extra args (e.g. --nofork from xss-lock) are passed through.
 
 font="Hack Nerd Font"
+accent=83a598   # rrggbb, set by the accent picker
 
 exec i3lock \
     --blur 8 \
@@ -11,7 +12,7 @@ exec i3lock \
     --insidever-color=282828cc --ringver-color=fabd2fff \
     --insidewrong-color=282828cc --ringwrong-color=fb4934ff \
     --line-uses-inside \
-    --keyhl-color=fe8019ff --bshl-color=fb4934ff --separator-color=00000000 \
+    --keyhl-color=${accent}ff --bshl-color=fb4934ff --separator-color=00000000 \
     --time-color=ebdbb2ff --date-color=a89984ff --layout-color=a89984ff \
     --verif-color=fabd2fff --wrong-color=fb4934ff --modif-color=a89984ff \
     --time-str="%H:%M" --date-str="%a %d %b" \

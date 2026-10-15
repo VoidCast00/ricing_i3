@@ -26,12 +26,12 @@ set $bg1     #3c3836
 set $bg2     #504945
 set $fg      #ebdbb2
 set $gray    #a89984
-set $orange  #fe8019
+set $accent  #83a598
 set $green   #b8bb26
 set $red     #fb4934
 
 # class                 border   backgr.  text   indicator child_border
-client.focused          $orange  $orange  $bg    $green    $orange
+client.focused          $accent  $accent  $bg    $green    $accent
 client.focused_inactive $bg2     $bg2     $fg    $bg2      $bg2
 client.unfocused        $bg1     $bg1     $gray  $bg1      $bg1
 client.urgent           $red     $red     $bg    $red      $red
@@ -81,8 +81,6 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show drun
-# search and jump to any open window
-bindsym $mod+Tab exec --no-startup-id rofi -show window
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -183,6 +181,9 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # power menu: lock / logout / suspend / reboot / shutdown
 bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/powermenu.sh
+
+# accent color picker (presets or any hex)
+bindsym $mod+Shift+a exec --no-startup-id ~/.config/i3/accent.sh
 
 # keyboard layout: US by default, Super+Alt+K toggles Slovak (QWERTY)
 exec --no-startup-id setxkbmap -layout us
