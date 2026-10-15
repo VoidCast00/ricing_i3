@@ -184,6 +184,10 @@ bindsym $mod+Shift+r restart
 # power menu: lock / logout / suspend / reboot / shutdown
 bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/powermenu.sh
 
+# keyboard layout: US by default, Super+Alt+K toggles Slovak (QWERTY)
+exec --no-startup-id setxkbmap -layout us
+bindsym $mod+Mod1+k exec --no-startup-id ~/.config/i3/kblayout.sh
+
 # brightness keys
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/brightness.sh up
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/brightness.sh down
