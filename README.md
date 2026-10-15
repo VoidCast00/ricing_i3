@@ -1,6 +1,4 @@
-# ricing
-
-My i3 setup on Manjaro: Gruvbox Dark everywhere, thin borders, no gaps.
+# Ricing (on my specific machine - Manjaro)
 
 | Part          | Tool                         | Config                                  |
 |---------------|------------------------------|-----------------------------------------|
@@ -15,21 +13,11 @@ My i3 setup on Manjaro: Gruvbox Dark everywhere, thin borders, no gaps.
 ## Restore
 
 ```sh
-git clone <this repo> ~/ricing
+git clone https://github.com/VoidCast00/ricing_i3/ ~/ricing
 cd ~/ricing
-./install.sh --packages   # installs packages (pacman + yay), then links configs
+./install.sh --packages   # installs packages (pacman + yay) links configs
 ```
 
-`./install.sh` without `--packages` only (re)creates the symlinks. Every file in
-`home/` is symlinked to the same path under `~`, so editing `~/.config/...` edits
-the repo. Existing files that differ are moved to `*.bak-<timestamp>` first.
-
-New config file? Move it into `home/` at the same path and run `./install.sh`.
-
-## Machine-specific bits
-
-`home/.config/polybar/config.ini` names this laptop's hardware — check these on a
-new machine (`ip link`, `ls /sys/class/power_supply /sys/class/backlight`):
 
 - `wlp0s20f3` (wifi), `enp0s31f6` (ethernet)
 - `BAT0` / `AC` (battery)
