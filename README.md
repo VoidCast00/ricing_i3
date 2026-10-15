@@ -3,10 +3,10 @@
 | Part          | Tool                         | Config                                  |
 |---------------|------------------------------|-----------------------------------------|
 | Window manager| i3                           | `home/.config/i3/config`                |
-| Bar           | polybar                      | `home/.config/polybar/`                 |
-| Launcher      | rofi                         | `home/.config/rofi/`                    |
+| Bar           |polybar                      | `home/.config/polybar/`                 |
+| Launcher      |rofi                         | `home/.config/rofi/`                    |
 | Notifications | dunst                        | `home/.config/dunst/dunstrc`            |
-| Lock screen   | i3lock-color (+ xss-lock)    | `home/.config/i3/lock.sh`               |
+| Lock screen   | i3lock-color+ xss-lock    | `home/.config/i3/lock.sh`               |
 | Terminal      | kitty                        | `home/.config/kitty/`                   |
 | Wallpaper     | feh, random on every reload  | `home/Wallpaper/`                       |
 
@@ -28,12 +28,9 @@ cd ~/ricing
 | Keys                | Action                 |
 |---------------------|------------------------|
 | `Super+Enter`       | kitty                  |
-| `Super+Space`       | rofi app launcher      |
-| `Super+Shift+E`     | power menu (lock / logout / suspend / reboot / shutdown) |
+| `Super+Space`       | rofi  launcher      |
+| `Super+Shift+E`     | power menu  |
 | `Super+Shift+L`     | lock screen            |
-| `Super+Shift+A`     | accent color picker (preset or any hex) |
+| `Super+Shift+A`     | accent color     |
 | `Super+Alt+K`       | toggle keyboard layout: US ↔ Slovak (QWERTY) |
-| `Super+Shift+R`     | restart i3 (and bar)   |
-| Brightness keys     | brightness ±5%         |
 
-Bar: left-click the power profile to cycle saver → balanced → perf, right-click to pick one.
