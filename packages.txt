@@ -9,6 +9,15 @@ xorg-xdpyinfo
 imagemagick
 ttf-hack-nerd
 papirus-icon-theme
+lxappearance
+xorg-xrdb
 libnotify
 libpulse
 git
+dex
+polkit-kde-agent
+brightnessctl
+power-profiles-daemon
+networkmanager
+xorg-setxkbmap
+psmisc

@@ -31,9 +31,13 @@ cd ~/ricing
 | `Super+Space`       | rofi app launcher      |
 | `Super+Shift+E`     | power menu (lock / logout / suspend / reboot / shutdown) |
 | `Super+Shift+L`     | lock screen            |
+| `Super+Shift+W`     | Wi-Fi menu (also: click the Wi-Fi icon on the bar) |
 | `Super+Shift+A`     | accent color picker (preset or any hex) |
 | `Super+Alt+K`       | toggle keyboard layout: US ↔ Slovak (QWERTY) |
 | `Super+Shift+R`     | restart i3 (and bar)   |
 | Brightness keys     | brightness ±5%         |
 
+Cursor: pick the theme in **Customize Look and Feel** (lxappearance) → *Mouse Cursor* tab; size is set in `home/.Xresources`.
+
 Bar: left-click the power profile to cycle saver → balanced → perf, right-click to pick one.
+Click the zZ icon to keep the laptop running with the lid closed (yellow cup = awake); click again to go back to normal.

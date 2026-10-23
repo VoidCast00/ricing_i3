@@ -46,7 +46,7 @@ sedi -e "/^\[global\]/,/^\[/ s/^(\s+highlight = )\"#[0-9a-fA-F]{6}\"/\1\"#$hex\"
      -e "/^\[urgency_normal\]/,/^\[/ s/^(\s+frame_color = )\"#[0-9a-fA-F]{6}\"/\1\"#$hex\"/" \
      "$cfg/dunst/dunstrc"
 
+# the reload also restarts polybar (exec_always launch.sh)
 i3-msg reload >/dev/null
-"$cfg/polybar/launch.sh"
 dunstctl reload
 notify-send "Accent color" "<span foreground='#$hex'>████</span>  #$hex"

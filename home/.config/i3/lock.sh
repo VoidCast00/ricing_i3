@@ -2,7 +2,7 @@
 # Gruvbox lock screen (needs i3lock-color). Extra args (e.g. --nofork from xss-lock) are passed through.
 
 font="Hack Nerd Font"
-accent=83a598   # rrggbb, set by the accent picker
+accent=fe8019   # rrggbb, set by the accent picker
 
 exec i3lock \
     --blur 8 \

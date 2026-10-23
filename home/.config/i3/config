@@ -26,7 +26,7 @@ set $bg1     #3c3836
 set $bg2     #504945
 set $fg      #ebdbb2
 set $gray    #a89984
-set $accent  #83a598
+set $accent  #fe8019
 set $green   #b8bb26
 set $red     #fb4934
 
@@ -56,9 +56,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/lock.sh --no
 # notifications
 exec --no-startup-id dunst
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+# lid-awake button always starts "off" at login (drop a leftover inhibitor from last session)
+exec --no-startup-id pkill -f '^systemd-inhibit --what=handle-lid-switch --who=lidawake'
+
+# X resources (cursor size)
+exec --no-startup-id xrdb -merge ~/.Xresources
 
 # Use pactl to adjust volume in PulseAudio (polybar picks up changes by itself).
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
@@ -182,6 +184,9 @@ bindsym $mod+Shift+r restart
 # power menu: lock / logout / suspend / reboot / shutdown
 bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/powermenu.sh
 
+# wifi menu
+bindsym $mod+Shift+w exec --no-startup-id ~/.config/rofi/wifimenu.sh
+
 # accent color picker (presets or any hex)
 bindsym $mod+Shift+a exec --no-startup-id ~/.config/i3/accent.sh
 
@@ -224,7 +229,8 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 #Display Walpaper
-exec_always ~/Wallpaper/random_background.sh
+exec_always --no-startup-id ~/Wallpaper/random_background.sh
 
 #lock 
 bindsym $mod+shift+l exec --no-startup-id ~/.config/i3/lock.sh
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
