@@ -1,14 +1,20 @@
 #!/bin/sh
 
 backgrounds="${HOME}/Wallpaper/"
-BG_CMD="feh --no-xinerama --bg-fill"
+BG_CMD="feh --bg-fill"
+
+monitor_resolutions () {
+	# one WIDTHxHEIGHT per active monitor, in the order feh hands out images
+	xrandr --listactivemonitors | awk 'NR > 1 { split($3, a, /[\/x+]/); print a[1] "x" a[3] }'
+}
 
 get_fitting_image () {
 	# We check a directory that contains WIDTHxHEIGHT named subdirectories
 	# So if your screen size is 1920x1080 you should have
 	# "${backgrounds}/1920x1080"
-	resolution=$(xdpyinfo | awk '/dimensions/{print $2}')
-	find -L "${backgrounds}${resolution}" -type f | shuf -n1
+	# No folder for that size: take any wallpaper, --bg-fill scales it
+	find -L "${backgrounds}$1" -type f 2>/dev/null | shuf -n1 | grep . ||
+		find -L "$backgrounds" -mindepth 2 -type f \( -iname '*.png' -o -iname '*.jp*g' \) | shuf -n1
 }
 
 set_screensaver () {
@@ -30,11 +36,16 @@ set_screensaver () {
 }
 
 set_background () {
-	echo "Set ${1} as desktop wallpaper"
-	$BG_CMD "$1"
+	# a different random image on every monitor
+	set --
+	for res in $(monitor_resolutions); do
+		set -- "$@" "$(get_fitting_image "$res")"
+	done
+	echo "Set $* as desktop wallpaper"
+	$BG_CMD "$@"
 }
 
-for cmd in xdpyinfo feh convert; do
+for cmd in xdpyinfo xrandr feh convert; do
 	if ! command -v "$cmd" >/dev/null 2>&1; then
 		echo "$cmd is not installed, this won't work"
 		exit 1
@@ -46,17 +57,18 @@ if ! xdpyinfo -display "$DISPLAY" >/dev/null 2>&1; then
 	exit 2
 fi
 
-img="$(get_fitting_image)"
+# lock screen image: one fitting the first monitor
+img="$(get_fitting_image "$(monitor_resolutions | head -n1)")"
 
 case ${1:-background} in
 	screensaver*)
 		set_screensaver "$img"
 		;;
 	background*)
-		set_background "$img"
+		set_background
 		;;
 	both*)
-		set_background "$img"
+		set_background
 		set_screensaver "$img"
 		;;
 esac

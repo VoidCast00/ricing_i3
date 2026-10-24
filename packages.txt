@@ -6,6 +6,7 @@ kitty
 xss-lock
 feh
 xorg-xdpyinfo
+xorg-xrandr
 imagemagick
 ttf-hack-nerd
 papirus-icon-theme
@@ -21,3 +22,4 @@ power-profiles-daemon
 networkmanager
 xorg-setxkbmap
 psmisc
+xorg-xinput

@@ -59,6 +59,12 @@ exec --no-startup-id dunst
 # lid-awake button always starts "off" at login (drop a leftover inhibitor from last session)
 exec --no-startup-id pkill -f '^systemd-inhibit --what=handle-lid-switch --who=lidawake'
 
+# mouse / touchpad speed: re-apply saved per-device settings now and on hotplug
+exec --no-startup-id ~/.config/rofi/mousesens.sh watch
+
+# monitors: turn plugged-in ones on (right of the others) and redo bars + wallpaper on hotplug
+exec --no-startup-id ~/.config/i3/displays.sh watch
+
 # X resources (cursor size)
 exec --no-startup-id xrdb -merge ~/.Xresources
 
@@ -112,6 +118,12 @@ bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# move the whole workspace to the monitor in that direction
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Down move workspace to output down
+bindsym $mod+Ctrl+Up move workspace to output up
+bindsym $mod+Ctrl+Right move workspace to output right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -187,12 +199,19 @@ bindsym $mod+Shift+e exec --no-startup-id ~/.config/rofi/powermenu.sh
 # wifi menu
 bindsym $mod+Shift+w exec --no-startup-id ~/.config/rofi/wifimenu.sh
 
+# mouse speed slider
+bindsym $mod+Shift+m exec --no-startup-id ~/.config/rofi/mousesens.sh
+
 # accent color picker (presets or any hex)
 bindsym $mod+Shift+a exec --no-startup-id ~/.config/i3/accent.sh
 
 # keyboard layout: US by default, Super+Alt+K toggles Slovak (QWERTY)
 exec --no-startup-id setxkbmap -layout us
 bindsym $mod+Mod1+k exec --no-startup-id ~/.config/i3/kblayout.sh
+
+# monitors: re-detect now (normally automatic on plug / unplug)
+bindsym $mod+p exec --no-startup-id ~/.config/i3/displays.sh
+bindsym XF86Display exec --no-startup-id ~/.config/i3/displays.sh
 
 # brightness keys
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/brightness.sh up
